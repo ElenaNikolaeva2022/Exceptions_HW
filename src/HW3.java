@@ -12,19 +12,27 @@
 
 import java.util.Arrays;
 
-public class HW3 {
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(diffElemArras(new int[]{1, 2, 3}, new int[]{3, 2, 1})));
+public static void main(String[] args) {
+        int[] array1 = {1, 2, 4, 5};
+//      int[] array1 = null;
+        int[] array2 = {0, 2, 3, 4, 6};
+        System.out.println(Arrays.toString(arrNew(array1, array2)));
     }
 
-    public static int[] diffElemArras(int[] arr1, int[] arr2) {
-        if (arr1.length != arr2.length) {
-            System.out.println("Массивы не равны!");
+    public static int[] arrNew(int[] array1, int[] array2) {
+
+        if (array1 == null || array2 == null) { // проверка на null
+            throw new RuntimeException ("Массив не может быть NULL!");
         }
-        int[] result = new int[arr1.length];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = arr1[i] - arr2[i];
+
+        if (array1.length != array2.length) { // проверка на длину массива
+            throw new RuntimeException ("Массивы должны быть равной длины!");
         }
-        return result;
+
+        int[] newArray = new int[array1.length];
+        for (int i = 0; i < array1.length; i++) {
+            newArray[i] = array1[i] - array2[i];
+        }
+        return newArray;
     }
 }
