@@ -3,26 +3,23 @@
 public class HW1 {
     public static void main(String[] args) {
 
-        // 1. Метод. ArithmeticException: / by zero
-        // System.out.println(divide(4, 0));
-
-        // // 2. Метод. ArrayIndexOutOfBoundsException: Index 100 out of bounds for length 10
-        // System.out.println(getArrayElement(new int[10]));
-
-        // // 3. Метод. NegativeArraySizeException: -1
-        // System.out.println(getArrayLen(new int[-1]));
+        System.out.println(method1(1, 0));
+//        System.out.println(method2());
+//        System.out.println(method3(10, 15, 2));
     }
 
-    public static int divide(int num1, int num2) {
-        return num1 / num2;
+    public static int method1(int a, int b) {
+        return a / b;  // ArithmeticException
     }
 
-    public static int getArrayElement(int[] array) {
-        return array[100];
+    public static int method2() {
+        String input = null;
+        return input.length(); // NullPointerException
     }
 
-    public static int getArrayLen(int[] array) {
-        return array.length;
+    public static int[] method3(int a, int b, int c) {
+        int[] array = new int[a];
+        array[b] = c;
+        return array; // ArrayIndexOutOfBoundsException
     }
 }
-
